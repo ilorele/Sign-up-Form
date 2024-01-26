@@ -20,8 +20,6 @@ html {
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    background-image: linear-gradient(to bottom, #B5C99A, #718355);
-
 }
 
 .left-side-container {
@@ -68,11 +66,13 @@ a {
 
 .right-side-container {
     font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(to bottom, #B5C99A, #718355);
 }
 
 .call-for-action,
 .main-header,
 .secondary-header,
+.required-fields-info,
 .user-info-container,
 .submit-form-btn {
     margin-left: 40px;
@@ -102,6 +102,10 @@ form {
     font-weight: 500;
 }
 
+.required-fields-info {
+    margin-bottom: 20px;
+}
+
 .user-info-container {
     box-sizing: border-box;
     display: flex;
@@ -120,14 +124,18 @@ input {
     width: 300px;
 }
 
+.required-label::after {
+    content: "*";
+}
+
 input {
+    appearance: none;
     margin-top: 5px;
     width: 100%;
     height: 1.5rem;
     border: 1px solid #808080;
     border-radius: 5px;
 }
-
 input:focus {
     outline: 2px solid #0000ff;
     box-shadow: 0 0 5px #000000;
@@ -138,8 +146,22 @@ input:valid {
     background-color: #adca82;
 }
 
+input:valid.error {
+    border: 1.5px solid red;
+    background-color: #ffffff;
+}
+
+input:placeholder-shown {
+    background-color: #ffffff;
+}
+
+.pwd-error-msg {
+    color: red;
+}
+
 .submit-form-btn {
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 15px 50px;
     border: none;
     border-radius: 15px;

@@ -156,7 +156,10 @@ input:placeholder-shown {
 }
 
 .pwd-error-msg {
+    margin-top: 5px;
+    font-size: 0.8rem;
     color: red;
+    visibility: hidden;
 }
 
 .submit-form-btn {

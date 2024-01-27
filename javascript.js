@@ -1,17 +1,18 @@
-const pwdContainerEl = document.querySelector(".pwd-input-container")
+const pwdContainerEl = document.querySelector(".pwd-input-container");
 const pwdInputEl = document.getElementById("pwd");
 const pwdConfirmEl = document.getElementById("confirm-pwd");
+const pwdErrorMessageEl = document.querySelector(".pwd-error-msg");
 
 
 function checkMatch(pwd, pwdConfirm) {
     if (pwd.value !== pwdConfirm.value) {
-        console.log("password do not match");
         addErrorClass(pwd);
         addErrorClass(pwdConfirm);
+        pwdErrorMessageEl.style.visibility = "visible";
     } else {
-        console.log("SUCCESS");
         removeErrorClass(pwd);
         removeErrorClass(pwdConfirm);
+        pwdErrorMessageEl.style.visibility = "hidden";
     }
 }
 
@@ -25,5 +26,6 @@ function removeErrorClass(inputField) {
 
 
 pwdConfirmEl.addEventListener("input", () => {
+    pwdConfirmEl.pattern = pwdInputEl.value;
     checkMatch(pwdInputEl, pwdConfirmEl);
 });
